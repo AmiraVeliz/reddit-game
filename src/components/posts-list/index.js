@@ -1,7 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
+import PostItem from '../post-item'
+
 import './posts-list.css';
-import { Icon, Card, Image } from 'semantic-ui-react';
-import DateConverter from '../common/date-converter';
+
 
 export default class PostsList extends React.Component {
 
@@ -31,6 +34,10 @@ export default class PostsList extends React.Component {
         }
     }
 
+    onClickPost = (post) => {
+        this.props.handleViewUrl(post);
+    }
+
     render() {
         const { loading, posts } = this.props;
 
@@ -38,29 +45,11 @@ export default class PostsList extends React.Component {
             <div className="ligth-text">
                 <h1>Reddit Posts</h1>
                 {posts.map((post, index) => (
-                    <Card key={post.name} className='card-post'>
-                        <Card.Content>
-                            <div className='spaced-items'>
-                                <span class="dot"></span>
-                                <span>{post.author}</span>
-                                <span>{DateConverter.getDateAgo(post.entryDate)}</span>
-                            </div>
-                            <div className='card-body'>
-                                <Image
-                                floated='left'
-                                size='tiny'
-                                src={post.thumbnail}
-                                />
-                                <Card.Meta className='ligth-text text-left'>{post.title}</Card.Meta>
-                            </div>
-                            <div className='spaced-items'>
-                                <div>
-                                    <Icon inverted name='close' className='secondary-color'/> Dismiss post
-                                </div>
-                                <span className='secondary-color'>{post.numberComments} comments</span>
-                            </div>
-                        </Card.Content>
-                    </Card>
+                    <PostItem
+                        key={index}
+                        post={post}
+                        handleViewUrl={this.onClickPost}
+                    />
                 ))}
                 <hr />
                 {loading && <div>Loading...</div> }
@@ -68,4 +57,26 @@ export default class PostsList extends React.Component {
             </div>
         );
     }
+}
+
+PostsList.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    posts: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        entryDate: PropTypes.number.isRequired,
+        thumbnail: PropTypes.string.isRequired,
+        numberComments: PropTypes.number.isRequired,
+        visited: PropTypes.bool.isRequired,
+        url: PropTypes.string.isRequired
+    })),
+    handleMorePosts: PropTypes.func.isRequired,
+    handleViewUrl: PropTypes.func.isRequired
+}
+
+PostsList.defaultProps = {
+    loading: false,
+    posts: [],
+    handleMorePosts: () => {},
+    handleViewUrl: () => {}
 }

@@ -18,6 +18,7 @@ export const getPosts = (dispatch, lastPost = '') => {
             thumbnail: post.data.thumbnail,
             numberComments: post.data.num_comments,
             visited: post.data.visited,
+            url: post.data.url
         }));
         dispatch({
             type: 'FETCH_POSTS_FULFILLED',

@@ -2,13 +2,16 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { getPosts } from '../../actions';
 import PostsList from '../posts-list';
+import PostDetail from '../post-detail';
 import './posts-page.css';
 
 class PostsPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      largePicture: null
+    }
   }
 
   componentWillMount = () => {
@@ -18,6 +21,12 @@ class PostsPage extends React.Component {
   handleMorePosts = () => {
       const { posts, getPosts } = this.props;
       getPosts(posts[posts.length - 1].name);
+  }
+
+  handleViewUrl = (url) => {
+      this.setState({
+        largePicture: url
+      })
   }
 
   render() {
@@ -30,11 +39,14 @@ class PostsPage extends React.Component {
                     loading={loading}
                     posts={posts}
                     handleMorePosts={this.handleMorePosts}
+                    handleViewUrl={this.handleViewUrl}
                 />
             </div>
 
             <div className="posts-detail">
-                Right col
+                <PostDetail
+                  largePicture={this.state.largePicture}
+                />
             </div>
         </div>
     );
