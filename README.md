@@ -1,4 +1,7 @@
+
+
 # Reddit game
+## [https://abrilvg.github.io/reddit-game](https://abrilvg.github.io/reddit-game)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -40,4 +43,4 @@ Deploys app to [https://abrilvg.github.io/reddit-game](https://abrilvg.github.io
 ### Some details
     - Pagination was replaced by a lazy loading because it fills beter on the design proposed
     - It would be a good idea have sass and the general styles centralized
-    - Update post status was made locally because of time, in the other side get pagination top posts was made directly against reddit api
+    - Reddit game build almost all features on the time expected is using technologies like: Reactjs, Redux, Semantic ui, superagent, hg-pages (for deployment)
