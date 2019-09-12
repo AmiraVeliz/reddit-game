@@ -1,12 +1,12 @@
 .posts-list {
     overflow-y: scroll;
-    max-width: 40%;
+    max-width: 45%;
     background-color: rgba(0,0,0,.87);
 }
 
 .posts-detail {
     display: flex;
-    width: 60%;
+    width: 55%;
 }
 
 .container {

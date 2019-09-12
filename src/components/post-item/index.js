@@ -16,7 +16,7 @@ class PostItem extends React.Component {
     }
 
     onClickThumbnail = () => {
-        this.props.handleViewUrl(this.props.post.url);
+        this.props.handleViewUrl(this.props.post);
     }
 
     onHidePost = () => {
@@ -31,7 +31,7 @@ class PostItem extends React.Component {
         return (
             <Card
                 key={name}
-                className={this.state.hidePost? 'hide-post': 'card-post'}
+                className={this.state.hidePost? 'card-post hide-post': 'card-post'}
                 onClick={this.onViewPost}
             >
                 <Card.Content>

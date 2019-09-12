@@ -10,7 +10,7 @@ class PostsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      largePicture: ''
+      postInDetail: {}
     }
   }
 
@@ -23,10 +23,10 @@ class PostsPage extends React.Component {
       getPosts(posts[posts.length - 1].name);
   }
 
-  handleViewUrl = (url) => {
+  handleViewUrl = (post) => {
       this.setState({
-        largePicture: url
-      })
+        postInDetail: post
+      });
   }
 
   render() {
@@ -45,7 +45,7 @@ class PostsPage extends React.Component {
 
             <div className="posts-detail">
                 <PostDetail
-                  largePicture={this.state.largePicture}
+                  postInDetail={this.state.postInDetail}
                 />
             </div>
         </div>

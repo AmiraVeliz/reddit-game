@@ -1,5 +1,13 @@
 .hide-post {
-    display: none !important;
+    /*display: none !important;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;*/
+    left: 0;
+    top: 0;
+    height: 0;
+    padding: 0;
+    transform: translateX(-100%);
 }
 
 .dot {
@@ -17,3 +25,9 @@
 .dot-gray {
     background-color: lightgray;
 }
+
+.card-post {
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+

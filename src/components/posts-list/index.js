@@ -5,7 +5,6 @@ import PostItem from '../post-item'
 
 import './posts-list.css';
 
-
 export default class PostsList extends React.Component {
 
     constructor(props) {
