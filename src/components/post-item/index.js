@@ -1,9 +1,7 @@
 import { Icon, Card, Image } from 'semantic-ui-react';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import { readPost } from '../../actions';
 import DateConverter from '../common/date-converter';
 
 import './post-item.css';
@@ -97,10 +95,4 @@ PostItem.defaultProps = {
     handleViewUrl: () => {}
 }
 
-const mapStateToProps = () => ({})
-
-const mapDispatchToProps = dispatch => ({
-    readPost: (post) => readPost(dispatch, post),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostItem);
+export default PostItem;
