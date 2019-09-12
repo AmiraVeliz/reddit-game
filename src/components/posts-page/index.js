@@ -10,7 +10,7 @@ class PostsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      largePicture: null
+      largePicture: ''
     }
   }
 

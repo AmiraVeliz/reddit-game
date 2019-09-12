@@ -68,7 +68,8 @@ PostsList.propTypes = {
         thumbnail: PropTypes.string.isRequired,
         numberComments: PropTypes.number.isRequired,
         visited: PropTypes.bool.isRequired,
-        url: PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired
     })),
     handleMorePosts: PropTypes.func.isRequired,
     handleViewUrl: PropTypes.func.isRequired

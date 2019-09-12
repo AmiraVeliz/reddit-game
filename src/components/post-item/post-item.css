@@ -1,0 +1,19 @@
+.hide-post {
+    display: none !important;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+}
+.dot-blue {
+    background-color: dodgerblue;
+}
+
+.dot-gray {
+    background-color: lightgray;
+}
