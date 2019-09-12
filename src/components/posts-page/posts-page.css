@@ -1,0 +1,16 @@
+.posts-list {
+    overflow-y: scroll;
+    max-width: 40%;
+    background-color: rgba(0,0,0,.87);
+}
+
+.posts-detail {
+    display: flex;
+    width: 60%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}

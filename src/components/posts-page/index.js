@@ -2,49 +2,41 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { getPosts } from '../../actions';
 import PostsList from '../posts-list';
+import './posts-page.css';
 
 class PostsPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {}
-    this.attachScroll();
   }
 
   componentWillMount = () => {
     this.props.getPosts();
   }
 
-  attachScroll () {
-    window.onscroll = () => {
-        const { loading, posts } = this.props;
-        if (loading || posts.length === 0) return;
-
-        // if page has scrolled to the bottom
-        if (
-          window.innerHeight + document.documentElement.scrollTop
-          === document.documentElement.offsetHeight
-        ) {
-          this.loadPosts();
-        }
-      };
-  }
-
-  loadPosts() {
+  handleMorePosts = () => {
       const { posts, getPosts } = this.props;
       getPosts(posts[posts.length - 1].name);
   }
 
   render() {
-    const { posts, loading } = this.props
+    const { posts, loading } = this.props;
 
     return (
-      <div>
-        <PostsList
-            loading={loading}
-            posts={posts}
-        />
-      </div>
+        <div className="container">
+            <div className="posts-list">
+                <PostsList
+                    loading={loading}
+                    posts={posts}
+                    handleMorePosts={this.handleMorePosts}
+                />
+            </div>
+
+            <div className="posts-detail">
+                Right col
+            </div>
+        </div>
     );
   }
 }

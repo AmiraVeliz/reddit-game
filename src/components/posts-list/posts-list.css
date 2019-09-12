@@ -1,0 +1,37 @@
+.ligth-text {
+    color: lightgray !important;
+}
+
+.card-post {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+}
+
+.spaced-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-body {
+    padding: 20px 0;
+    height: 120px;
+}
+
+.secondary-color {
+    color: orange !important;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+}
